@@ -46,7 +46,7 @@ class ObjDiff
       when String, Numeric, Symbol, TrueClass, FalseClass, NilClass
         return Error.new('value', property, lhs, rhs) if lhs != rhs
       when Hash
-        return Error.new("keys", property, lhs.keys.sort, rhs.keys.sort) if lhs.keys != rhs.keys
+        return Error.new("keys", property, lhs.keys.sort, rhs.keys.sort) if lhs.keys.sort != rhs.keys.sort
 
         lhs.keys.each do |key|
           printable_key = if simple_key?(key)
